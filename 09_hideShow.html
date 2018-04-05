@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            div {
+                background-color: aquamarine;
+                width: 100px;
+                text-align: center;
+                
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div>메뉴</div>
+        <ul>
+            <li>List 1</li>
+            <li>List 2</li>
+            <li>List 3</li>
+            <li>List 4</li>
+            <li>List 5</li>
+        </ul>
+        <br/><br/>
+        <button id="btnToggle">OFF</button>
+        <p>List 1</p>
+        <p>List 2</p>
+        <p>List 3</p>
+        <p>List 4</p>
+        <p>List 5</p>
+    </body>
+    <script>
+        /* 메뉴에 마우스를 올리면 리스트가 보이도록 */
+        // 먼저 숨겨놓음
+        $("ul").hide();
+        
+        $("div").hover(function() {
+            // 마우스 올렸을 때
+            $("ul").show(500); // 인자값을 주면 해당 시간동안 서서히 나타남
+        }, function() {
+            // 마우스 내렸을 때
+            $("ul").hide(500); // 인자값을 주면 해당 시간동안 서서히 사라짐
+        });
+        
+        /* toggle() 함수를 사용하면 쉽게 숨기고 나타나게 할 수 있다. */
+        $("#btnToggle").click(function() {
+            // .toggle([시간], [callback함수])
+            // callback 함수 : toggle이 끝나면 실행
+            // ON, OFF 바꾸기
+            $("p").toggle(500, function() {
+                // 현재 상태 가져오기
+                var cur = $("#btnToggle").html();
+                if (cur == "OFF") { // OFF면 ON으로 바꾸기
+                    $("#btnToggle").html("ON");
+                } else { // ON이면 OFF로 바꾸기
+                    $("#btnToggle").html("OFF");
+                }
+            });
+        });
+        
+        
+    </script>
+</html>

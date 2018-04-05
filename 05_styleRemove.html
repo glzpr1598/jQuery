@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            /* 여기서 작성한 CSS는 jQuery로 삭제 불가능 */
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div style="width: 100px;
+                height: 100px;
+                background-color: yellow;
+                text-align: center">
+            test
+        </div>
+        <button id="btn1">방법1</button>
+        <button id="btn2">방법2</button>
+        <button id="btn3">방법3</button>
+    </body>
+    <script>
+        /* style 속성 삭제하기 */
+        // inline 속성만 가능. style 태그 안에 직접 작성한 것은 적용 안됨..
+        
+        /* 방법1. jQuery */
+        $("#btn1").click(function() {
+            $("div").css("background-color", "");
+            $("div").css("text-align", "");
+        });
+        
+        /* 방법2. JavaScript의 함수 사용 */
+        $("#btn2").click(function() {
+            var div = $("div").get(0);
+            div.style.removeProperty("background-color");
+            div.style.removeProperty("text-align");
+        });
+        
+        /* 방법3. style 속성 자체를 제거 */
+        $("#btn3").click(function() {
+            $("div").removeAttr("style");
+        });
+        
+    </script>
+</html>

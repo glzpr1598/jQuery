@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                display: none;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <button id="btn1">fadeIn</button>
+        <button id="btn2">fadeOut</button>
+        <button id="btn3">ON</button>
+        <div></div>
+        <br>
+        <img src="img/img01.jpg" width="100px">
+    </body>
+    <script>
+        
+        // fadeIn([속도], [callback])
+        $("#btn1").click(function() {
+            $("div").fadeIn("slow", function() {
+                // callback -> 토글 버튼의 글자가 바뀌도록
+                $("#btn3").html("OFF");
+            });
+        });
+        
+        // fadeOut([속도], [callback])
+        $("#btn2").click(function() {
+            $("div").fadeOut("slow", function() {
+                // callback -> 토글 버튼의 글자가 바뀌도록
+                $("#btn3").html("ON");
+            });
+        });
+        
+        // fadeToggle([속도], [callback]);
+        $("#btn3").click(function() {
+            $("div").fadeToggle("slow", function() {
+                var cur = $("#btn3").html();
+                // ON이면 OFF로 변경
+                if (cur == "ON") {
+                    $("#btn3").html("OFF");
+                } else {
+                    $("#btn3").html("ON");
+                }
+            });
+        });
+        
+        // fadeTo(속도, 불투명도)
+        // 마우스 올렸을 때 투명해지도록
+        $("img").hover(function() {
+            $(this).fadeTo("slow", 0.2);
+        }, function() {
+            $(this).fadeTo("slow", 1);
+        });
+        
+    </script>
+</html>

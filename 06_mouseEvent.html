@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            div {
+                width: 200px;
+                height: 200px;
+                border: solid;
+                margin: 10px;
+                text-align: center;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <p>글자색 변경</p>
+        <p>글자색 변경</p>
+        
+        <div id="div1">mouseenter, mouseleave</div>
+        <div id="div2">hover</div>
+        <div id="div3">mousedown, mouseup</div>
+        
+        <input id="input1" type="text">
+    </body>
+    <script>
+        // on : 한 요소에 여러 이벤트 추가 가능
+        // .on(이벤트, [선택자], 함수)
+        // 선택자 입력 시 해당 요소의 자손중에서 선택자를 이용해 찾음. ex) 리스트에서 li를 추가하였을 때 이도 선택하기 위해 사용
+        
+        /*
+        // p태그 클릭 시 해당 태그 글자색 변경
+        $("p").on("click", function() {
+            $(this).css("color", "blue");
+        });
+        
+        // 더블 클릭
+        $("p").on("dblclick", function() {
+            $(this).css("color", "red");
+        });
+        */
+        
+        // 위 코드를 객체를 사용하여 한번에 가능
+        $("p").on({
+            "click": function() {$(this).css("color", "blue");},
+            "dblclick": function() {$(this).css("color", "red");}
+        });
+        
+        
+        // mouseenter : 마우스가 들어옴.
+        $("#div1").mouseenter(function() {
+            $("#div1").html("마우스가 들어옴.")
+        });
+        
+        // mouseleave : 마우스가 나감.
+        $("#div1").mouseleave(function() {
+            $("#div1").html("마우스가 나감.")
+        });
+        
+        
+        // hover(마우스 올렸을 때 함수, [마우스 내렸을 때 함])
+        $("#div2").hover(function() {
+            $("#div2").html("마우스가 들어옴.")
+        }, function() {
+            $("#div2").html("마우스가 나감.")
+        });
+        
+        
+        // mousedown : 마우스 누름.
+        $("#div3").mousedown(function() {
+            $(this).html("마우스 누름.");
+        });
+        
+        // mouseup : 마우스 뗌.
+        $("#div3").mouseup(function() {
+            $(this).html("마우스 뗌.");
+        });
+        
+        
+        // focusin : 커서가 들어왔을 때
+        $("#input1").focusin(function() {
+            $(this).css("background", "lightgray");
+        });
+        
+        // focusout : 커서가 나갔을 때
+        $("#input1").focusout(function() {
+            $(this).css("background", "");
+        });
+    </script>
+</html>

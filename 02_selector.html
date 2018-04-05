@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <h1>h1 태그</h1>
+        <h1 class="myClass">h1 태그, class="myClass"</h1>
+        <h2 class="myClass">h2 태그, class="myClass"</h2>
+        <p id="one">p 태그, id="one"</p>
+        <p>p 태그</p>
+        
+        <button id="btnId">아이디</button>
+        <button id="btnClass">클래스</button>
+        <button id="btnTag">태그</button>
+    </body>
+    <script>
+        /* 기존 방식
+        var one = document.getElementById("one");
+        var btnId = document.getElementById("btnId");
+        btnId.addEventListener("click", function() {
+            one.innerHTML="안녕하세요."
+        });
+        */
+        
+        /* jQuery 이용 */
+        // 아이디 버튼 클릭 시 one에 문자열 넣기
+        $("#btnId").click(function() { // 클릭시 함수 실행
+            $("#one").html("id='one' 선택됨."); // html에 문자열 넣기(innerHTML)
+        });
+        
+        // 클래스 버튼 클릭 시 배경색 넣기
+        $("#btnClass").click(function() {
+            $(".myClass").css("background-color", "yellow"); // CSS 속성 넣기 -> sytle 속성을 inline으로 삽
+        });
+        
+        // 태그 버튼 클릭 시 p태그 color 변경
+        $("#btnTag").click(function() {
+            $("p").css("color", "blue");
+        });
+        
+    </script>
+</html>

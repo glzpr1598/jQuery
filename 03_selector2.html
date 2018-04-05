@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <h1>h1 tag</h1>
+        <p>p tag 1</p>
+        <p class="myClass">p tag 2</p>
+        <p id="p1">p tag 3</p>
+        
+        <button id="btn1">모두 숨기기</button>
+        <button id="btn2">p태그 중 클래스가 myClass</button>
+        <button id="btn3">첫번째 p태그</button>
+        
+        <p id="p2">p태그 1</p>
+        <p id="p3">p태그 2</p>
+        <p id="p4">p태그 3</p>
+        <p id="p5">p태그 4</p>
+        
+        <h3>List 1</h3>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>jQuery</li>
+        </ul>
+        
+        <h3>List 2</h3>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>jQuery</li>
+        </ul>
+        
+        <button id="btn4">ul의 li중 첫번째</button>
+        <button id="btn5">모든 ul의 li중 첫번째</button>
+    </body>
+    <script>
+        // 모든 요소 숨기기
+        $("#btn1").click(function() {
+            $("*").hide();
+        });
+        
+        // p태그 중 클래스가 myClass인 요소 숨기기
+        $("#btn2").click(function() {
+            $("p.myClass").hide();
+        });
+        
+        // 첫번째 p태그 숨기기
+        $("#btn3").click(function() {
+            $("p:first").hide();
+        });
+        
+        // p태그 선택 시 id 반환
+        $("p").click(function() {
+            // this로 선택한 요소를 가져와 id 속성을 리턴
+            var myId = $(this).attr("id");
+            // 가져온 id를 해당 요소 html에 넣기
+            $(this).html("id : " + myId);
+        });
+        
+        // first와 first-child 비교
+        // ul의 li중 첫번째
+        $("#btn4").click(function() {
+            $("ul li:first").css("background-color", "yellow");
+        });
+        
+        // 모든 ul의 li중 첫번째
+        $("#btn5").click(function() {
+            $("ul li:first-child").css("background-color", "yellow");
+        });
+        
+    </script>
+</html>

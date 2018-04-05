@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            table, tr, th, td {
+                text-align: center;
+                border: thin solid black;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <a href="https://www.w3schools.com/" target="_blank">w3schools</a>
+        <br/>
+        <button id="btn1">배경색 변경</button>
+        <button id="btn2">사이트 변경</button>
+        <br/><br/>
+        
+        <table>
+            <tr>
+                <th>이름</th>
+                <th>생년월일</th>
+            </tr>
+            <tr>
+                <td>Kim</td>
+                <td>1993-08-27</td>
+            </tr>
+            <tr>
+                <td>Lee</td>
+                <td>1994-01-02</td>
+            </tr>
+            <tr>
+                <td>Park</td>
+                <td>1995-05-08</td>
+            </tr>
+            <tr>
+                <td>Jeong</td>
+                <td>1995-09-23</td>
+            </tr>
+            <tr>
+                <td>Yun</td>
+                <td>1992-10-15</td>
+            </tr>
+        </table>
+        
+        <button id="btnOdd">odd</button>
+        <button id="btnEven">even</button>
+        <button id="btnLoop">loop</button>
+    </body>
+    <script>
+        // a태그 배경색 변경
+        $("#btn1").click(function() {
+            $("a").css("background", "yellow");
+        });
+        
+        // 특정 속성을 가진 a태그 사이트 변경
+        $("#btn2").click(function() {
+            // .attr은 인자가 하나면 값 반환, 인자가 2개면 속성 변경
+            // 링크(href) 변경
+            $("a[target='_blank']").attr("href", "https://www.google.co.kr");
+            // 
+            $("a[target='_blank']").html("google");
+        })
+        
+        
+        // 홀수 행만 배경색 넣기(0부터 시작하므로 실제로는 짝수행)
+        $("#btnOdd").click(function() {
+            $("tr:odd").css("background", "yellow");
+            // 짝수 행은 배경색 없앰
+            $("tr:even").css("background", "");
+        })
+        
+        // 짝수 행만 배경색 넣기
+        $("#btnEven").click(function() {
+            $("tr:even").css("background", "yellow");
+            $("tr:odd").css("background", "");
+        })
+        
+        // 1초마다 홀짝 반복하여 배경색 넣기
+        var i = 0;
+        $("#btnLoop").click(function() {
+            setInterval(function() {
+                if (i == 0) { // 홀수 행에 배경색
+                    $("tr:odd").css("background", "yellow");
+                    $("tr:even").css("background", "");
+                    i++;
+                } else { // 짝수 행에 배경색
+                    $("tr:even").css("background", "yellow");
+                    $("tr:odd").css("background", "");
+                    i--;
+                }
+            }, 1000);
+        });
+        
+    </script>
+</html>

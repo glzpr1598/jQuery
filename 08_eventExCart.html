@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            div {
+                width: 150px;
+                margin: 5px;
+                padding: 5px;
+                border: thin solid;
+                text-align: center;
+                /*마우스 올렸을 때 커서 모양*/
+                cursor: pointer;
+            }
+            
+            .cnt {
+                border: thin solid;
+                font-weight: 600;
+                padding: 0px 6px;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div>
+            아이템1 구매 수
+            <span class="cnt">0</span>
+        </div>
+        <div>
+            아이템2 구매 수
+            <span class="cnt">0</span>
+        </div>
+        <div>
+            아이템3 구매 수
+            <span class="cnt">0</span>
+        </div>
+    </body>
+    <script>
+        // 아이템을 누를 때마다 해당 숫자가 증가
+        var cnt;
+        $("div").click(function(e) {
+            // 기존 html 가져오기
+            cnt = $(this).children().html();
+            cnt++;
+            // 증가시킨 값 넣
+            $(this).children().html(cnt);
+        });
+        
+    </script>
+</html>
