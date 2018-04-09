@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <input type="text" value="test message">
+        <button>button</button>
+        <p>문자가 쓰여진 <b>강조된</b> 영역</p>
+        <span id="html"></span>
+        <span id="text"></span>
+    </body>
+    <script>
+        // .attr(속성) : 속성값 출력
+        console.log($("input").attr("type"));
+        
+        // .val() : form field의 값 출력
+        console.log($("input").attr("value")); // value 속성값을 가져옴
+        console.log($("input").val()); // input 박스에 적혀있는 값을 가져옴
+        
+        $("button").click(function(){
+            console.log($("input").attr("value")); // test message 출력
+            console.log($("input").val()); // input에 적은 값 출력
+        });
+        
+        // .html() : html으로 내용 작성/반환
+        console.log($("p").html());
+        $("#html").html("<h1>html()과 text()의 차이<h1>");
+        
+        // .text() : text로 내용 작성/반환(태그 제외)
+        console.log($("p").text());
+        $("#text").text("<h1>html()과 text()의 차이<h1>");
+        
+    </script>
+</html>

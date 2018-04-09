@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            .myClass {
+                position: absolute;
+                width: 150px;
+                height: 30px;
+                cursor: pointer;
+                top: 130px;
+            }
+            
+            #div1 {
+                background-color: cadetblue;
+                left: 10px;
+            }
+            #div2 {
+                background-color: coral;
+                left: 170px;
+            }
+            #div3 {
+                background-color: darkturquoise;
+                left: 330px;
+            }
+            
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div id="div1" class="myClass"></div>
+        <div id="div2" class="myClass"></div>
+        <div id="div3" class="myClass"></div>
+    </body>
+    <script>
+        // div에 마우스를 올리면 크기가 위로 점점 커지도록
+        // height와 함께 top도 조절
+        $(".myClass").hover(function() {
+            $(this).animate({height: "+=120px", top: "-=120px"}, "fast");
+        }, function() {
+            $(this).animate({height: "-=120px", top: "+=120px"}, "fast");
+        });
+        
+    </script>
+</html>

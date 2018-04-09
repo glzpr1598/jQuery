@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            div {
+                position: absolute;
+            }
+            
+            #div1 {
+                width: 30px;
+                height: 30px;
+                background-color: blue;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div id="div1"></div>
+        <div id="follow">마우스를 따라다닌다.</div>
+    </body>
+    <script>
+        // div가 마우스를 따라다니도록
+        $(document).mousemove(function(e) {
+            //console.log(e); // 속성 확인
+            $("#follow").css("left", e.clientX);
+            $("#follow").css("top", e.clientY);
+        });
+        
+        // 마우스 클릭 시 블록이 해당 위치로 이동하도록
+        $(document).click(function(e) {
+            //console.log(e);
+            $("#div1").animate({
+                left: e.clientX,
+                top: e.clientY
+            });
+        });
+        
+    </script>
+</html>
