@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            .myClass1 {
+                background-color: yellow;
+            }
+            .myClass2 {
+                border: thin solid;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div>테스트 div</div>
+        <button id="btn1">addClass1</button>
+        <button id="btn2">addClass2</button>
+        <br>
+        <button id="btn3">removeClass1</button>
+        <button id="btn4">removeClass2</button>
+        <br>
+        <button id="btn5">toggleClass1</button>
+        <button id="btn6">toggleClass2</button>
+    </body>
+    <script>
+        /*
+        .addClass(클래스명) : 해당 클래스를 추가
+        .removeClass(클래스명) : 해당 클래스를 제거
+        .toggleClass(클래스명) : 해당 클래스를 토글
+        .hasClass(클래스명) : 해당 클래스를 가지고 있는지 여부
+        
+        HTML에서 여러개의 class를 적용하려면 띄어쓰기로 구
+        */
+        
+        // addClass
+        $("#btn1").click(function() {
+            $("div").addClass("myClass1");
+        });
+        $("#btn2").click(function() {
+            $("div").addClass("myClass2");
+        });
+        
+        // removeClass
+        $("#btn3").click(function() {
+            $("div").removeClass("myClass1");
+        });
+        $("#btn4").click(function() {
+            $("div").removeClass("myClass2");
+        });
+        
+        // toggleClass
+        $("#btn5").click(function() {
+            $("div").toggleClass("myClass1");
+            
+            // hasClass를 통해 버튼 ON, OFF 전환
+            if ($("div").hasClass("myClass1")) {
+                $("#btn5").html("OFF");
+            } else {
+                $("#btn5").html("ON");
+            }
+        });
+        $("#btn6").click(function() {
+            $("div").toggleClass("myClass2");
+            
+            // hasClass를 통해 버튼 ON, OFF 전환
+            if ($("div").hasClass("myClass2")) {
+                $("#btn6").html("OFF");
+            } else {
+                $("#btn6").html("ON");
+            }
+        });
+    </script>
+</html>
