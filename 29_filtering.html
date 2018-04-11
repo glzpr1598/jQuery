@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            body * {
+                border: thin solid black;
+                padding: 5px;
+                margin: 5px;
+            }
+            
+            .classYellow {
+                background-color: yellow;
+            }
+            
+            .classBlue {
+                color: blue;
+            }
+            
+            .classRed {
+                color: red;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <p>문단 1</p>
+            <p >문단 2</p>
+            <p>문단 3</p>
+            <p class="sel">문단 4(sel class)</p>
+            <p>문단 5</p>
+            <p >문단 6</p>
+            <p>문단 7</p>
+            <p class="sel">문단 8(sel class)</p>
+        </div>
+    </body>
+    <script>
+        /*
+        .first(셀렉터) : 선택한 요소 중 첫번째 요소
+        .last(셀렉터) : 선택한 요소 중 마지막 요소
+        .eq(인덱스) : n번째 요소
+        .filter(셀렉터) : 셀렉터를 통과한 요소
+        .not(셀릭터) : 셀릭터를 제외한 요소
+        */
+        
+        // first
+        $("div p").first().addClass("classYellow");
+        // last
+        $("div p").last().addClass("classYellow");
+        // eq
+        $("div p").eq(4).addClass("classYellow");
+        // filter
+        $("div p").filter(".sel").addClass("classBlue");
+        // not
+        $("div p").not(".sel").addClass("classRed");
+        
+    </script>
+</html>

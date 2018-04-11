@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            img {
+                width: 400px;
+                padding: 20px;
+                border: 2px solid;
+                margin: 10px;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <img src="img/demension.png">
+        <p>
+            width: 400px;
+            padding: 20px;
+            border: 2px solid;
+            margin: 10px;
+        </p>
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <button id="btn1">width</button>
+        <button id="btn2">innerWidth</button>
+        <button id="btn3">outerWidth</button>
+        <button id="btn4">outerWidth(true)</button>
+        <p id="p3"></p>
+    </body>
+    <script>
+        /*
+        .width() : 요소만의 크기
+        .innerWidth() : 요소 + padding
+        .outerWidth() : 요소 + padding + border
+        .outerWidth(true) : 요소 + padding + border + margin
+        */
+        
+        // 창 크기가 변할때마다 함수 실행
+        window.onresize = function(e) {
+            // window 객체의 가로, 세로 길이 출력
+            $("#p1").html("window : " + $(window).width() + ", " + $(window).height());
+            // document 객체의 가로, 세로 길이 출력
+            $("#p2").html("document : " + $(document).width() + ", " + $(document).height());
+        };
+        
+        // width 출력
+        $("#btn1").click(function() {
+            $("#p3").html($("img").width());
+        });
+        // innerWidth 출력
+        $("#btn2").click(function() {
+            $("#p3").html($("img").innerWidth());
+        });
+        // outerWidth 출력
+        $("#btn3").click(function() {
+            $("#p3").html($("img").outerWidth());
+        });
+        // outerWidth(true) 출력
+        $("#btn4").click(function() {
+            $("#p3").html($("img").outerWidth(true));
+        });
+    </script>
+</html>

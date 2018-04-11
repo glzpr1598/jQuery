@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            /*클래스의 하위 요소까지 모두 선택*/
+            .ancestors * {
+                display: block;
+                border: thin solid gray;
+                padding: 5px;
+                margin: 5px;
+                color: black;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div class="ancestors">
+            <div>div(great parent)
+                <ul>ul(grand parent)
+                    <li>li(parent)
+                        <span>span</span>
+                    </li>
+                </ul>
+            </div>
+            <div>div(grand parent)
+                <p>p(parent)
+                    <span>span</span>
+                </p>
+            </div>
+        </div>
+        <button id="btn0">reset</button>
+        <button id="btn1">parent</button>
+        <button id="btn2">parents</button>
+        <button id="btn3">parentsUltil</button>
+        
+    </body>
+    <script>
+        /* 조상(ancestors) 추
+        .parent() : 부모요소
+        .parents() : 조상요소
+        .parentsUntil([선택자], [필터]) : 선택한 요소 전까지의 필터(조건)를 통과한 조상요소
+        */
+        
+        // 설정한 css 지우기
+        $("#btn0").click(function() {
+            $("*").css({color: "", border: ""});
+        });
+        // parent
+        $("#btn1").click(function() {
+            $("span").parent().css({color: "red", border: "thin solid red"});
+        });
+        // parents
+        $("#btn2").click(function() {
+            $("span").parents().css({color: "red", border: "thin solid red"});
+        });
+        // parentsUntil
+        $("#btn3").click(function() {
+            $("span").parentsUntil(".ancestors").css({color: "red", border: "thin solid red"});
+        });
+    </script>
+</html>

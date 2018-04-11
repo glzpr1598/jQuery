@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                margin: 5px;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <button id="btn1">fadeOut</button>
+        <button id="btn2">fadeIn</button>
+        <div style="background-color: red"></div>
+        <div style="background-color: green"></div>
+        <div style="background-color: blue"></div>
+    </body>
+    <script>
+        // 빨 -> 초 -> 파 순으로 사라짐
+        // 이전 요소가 사라져야 다음 요소가 사라지기 시작
+        $("#btn1").click(function() {
+            // 첫번째 요소 없애기
+            $("div").first().fadeOut("slow", function myFn() {
+                // 다음요소 없애기
+                // callback 함수로 재귀함수 이용
+                $(this).next("div").fadeOut("slow", myFn);
+            });
+        });
+        
+        // 다시 나타남
+        $("#btn2").click(function() {
+            $("div").first().fadeIn("slow", function myFn() {
+                // next에 div를 넣지 않으면 script까지 나타남
+                $(this).next("div").fadeIn("slow", myFn);
+            });
+        });
+    </script>
+</html>

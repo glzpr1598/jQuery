@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            /*클래스의 하위 요소까지 모두 선택*/
+            .siblings * {
+                display: block;
+                border: thin solid gray;
+                padding: 5px;
+                margin: 5px;
+                color: black;
+            }
+            
+            .selected {
+                color: red;
+                border: thin solid red;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div class="siblings">div(parent)
+            <h3>h3 태그</h3>
+            <p>문단 1</p>
+            <p>문단 2</p>
+            <p id="cri">문단 3(기준)</p>
+            <p>문단 4</p>
+            <p>문단 5</p>
+            <h3>h3 태그</h3>
+        </div>
+        <button id="btn0">reset</button>
+        <br>
+        <button id="btn1">siblings</button>
+        <br>
+        <button id="btn2">next</button>
+        <button id="btn3">nextAll</button>
+        <button id="btn4">nextUntil</button>
+        <br>
+        <button id="btn5">prev</button>
+        <button id="btn6">prevAll</button>
+        <button id="btn7">prevUntil</button>
+    </body>
+    <script>
+        /* 형제(siblings) 추적
+        siblings([선택자]) : 형제요소 중 선택
+        
+        next([선택자]) : 바로 아래의 형제요소
+        nextAll([선택자]) : 아래의 모든 형제요소
+        nextUntil([선택자], [필터]) : [선택자 전까지] [필터를 통과한] 아래의 모든 형제요소
+        
+        prev도 위와 같이 쓰면 됨.
+        */
+        
+        // reset
+        $("#btn0").click(function() {
+            $("*").removeClass("selected");
+        });
+        // siblings
+        $("#btn1").click(function() {
+            $("#cri").siblings().addClass("selected");
+        });
+        
+        // next
+        $("#btn2").click(function() {
+            $("#cri").next().addClass("selected");
+        });
+        // nextAll
+        $("#btn3").click(function() {
+            $("#cri").nextAll().addClass("selected");
+        });
+        // nextUntil
+        $("#btn4").click(function() {
+            $("#cri").nextUntil("h3").addClass("selected");
+        });
+        
+        // prev
+        $("#btn5").click(function() {
+            $("#cri").prev().addClass("selected");
+        });
+        // prevAll
+        $("#btn6").click(function() {
+            $("#cri").prevAll().addClass("selected");
+        });
+        // prevUntil
+        $("#btn7").click(function() {
+            $("#cri").prevUntil("h3").addClass("selected");
+        });
+    </script>
+</html>

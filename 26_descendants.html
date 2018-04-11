@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            /*클래스의 하위 요소까지 모두 선택*/
+            .ancestors * {
+                display: block;
+                border: thin solid gray;
+                padding: 5px;
+                margin: 5px;
+                color: black;
+            }
+            
+            .selected {
+                color: red;
+                border: thin solid red;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div class="ancestors">
+            <div>div(great parent)
+                <ul>ul(grand parent)
+                    <li>li(parent)
+                        <span>span</span>
+                    </li>
+                </ul>
+            </div>
+            <div>div(grand parent)
+                <p>p(parent)
+                    <span>span</span>
+                </p>
+            </div>
+        </div>
+        <button id="btn0">reset</button>
+        <button id="btn1">chidren</button>
+        <button id="btn2">find</button>
+        
+    </body>
+    <script>
+        /* 후손(descendants) 추적
+        .children() : 자식요소
+        .find(선택자) : 후손요소 중에서 선택
+        */
+        
+        // reset
+        $("#btn0").click(function() {
+            $("*").removeClass("selected");
+        });
+        // children
+        $("#btn1").click(function() {
+            $(".ancestors").children().addClass("selected");
+        });
+        // find
+        $("#btn2").click(function() {
+            $(".ancestors").find("*").addClass("selected");
+        });
+    </script>
+</html>
