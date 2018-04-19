@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            table {
+                width: 100%;
+            }
+            
+            table, th, tr, td {
+                border: thin solid black;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <table id="table1">
+            <tr>
+                <th>학번</th>
+                <th>이름</th>
+                <th>과목</th>
+                <th>학점</th>
+            </tr>
+        </table>
+        학번 : <input class="inputClass1" type="text"><br>
+        이름 : <input class="inputClass1" type="text"><br>
+        과목 : <input class="inputClass1" type="text"><br>
+        학점 : <input class="inputClass1" type="text"><br>
+        <button id="button1">입력</button>
+    </body>
+    <script>
+        /* 입력 버튼을 누르면 input에 있는 텍스트를 테이블에 추가 */
+        $("#button1").click(function() {
+            var inputs = $(".inputClass1");
+            var contents = "<tr>";
+            
+            for (var i = 0; i < inputs.length; i++) {
+                contents += "<td>" + inputs[i].value + "</td>";
+            }
+            contents += "</tr>";
+            
+            // 자식 요소로 추가
+            $("#table1").append(contents);
+            
+            // 입력창 비우기
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].value = "";
+            }
+        });
+    </script>
+</html> 

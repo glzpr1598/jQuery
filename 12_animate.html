@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            div {
+                position: absolute;
+                background-color: blue;
+                left: 0px;
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <button id="left">Left</button>
+        <button id="right">Right</button>
+        <button id="stop">Stop</button>
+        <button id="multi">Multi</button>
+        <button id="step">Step</button>
+        <div id="div1"></div>
+    </body>
+    <script>
+        /* 
+        .animate({CSS 스타일}, [speed], [easing(가속도)], [callback])
+        -> 스타일은 사용할 수 있는 것이 정해져 있고,
+           값을 직접 넣으려면 "" 안에 넣어야 함.
+        .stop() -> animate 멈춤
+        */
+        
+        // 오른쪽으로 이동
+        $("#right").click(function() {
+            $("#div1").animate({left: "+=100px"}, "slow", "swing")
+        });
+        
+        // 왼쪽으로 이동
+        $("#left").click(function() {
+            $("#div1").animate({left: "-=100px"}, "slow", "linear");
+        });
+        
+        // 정지
+        $("#stop").click(function() {
+            $("#div1").stop();
+        });
+        
+        // 한번에 여러 스타일 변경 -> ,로 구분
+        $("#multi").click(function() {
+            $("#div1").animate({
+                width: "+=50px", height: "+=50px"
+            });
+        });
+        
+        // 순차적으로 연결 -> animate().animate()...
+        $("#step").click(function() {
+            $("#div1").animate({left: "+=100px"}).animate({top: "+=100px"});
+        });
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</html>

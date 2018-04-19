@@ -23,7 +23,7 @@
     </body>
     <script>
         
-        // fadeIn([속도], [callback])
+        // fadeIn([속도], [easing], [callback])
         $("#btn1").click(function() {
             $("div").fadeIn("slow", function() {
                 // callback -> 토글 버튼의 글자가 바뀌도록
@@ -31,7 +31,7 @@
             });
         });
         
-        // fadeOut([속도], [callback])
+        // fadeOut([속도], [easing], [callback])
         $("#btn2").click(function() {
             $("div").fadeOut("slow", function() {
                 // callback -> 토글 버튼의 글자가 바뀌도록
@@ -39,7 +39,7 @@
             });
         });
         
-        // fadeToggle([속도], [callback]);
+        // fadeToggle([속도], [easing], [callback]);
         $("#btn3").click(function() {
             $("div").fadeToggle("slow", function() {
                 var cur = $("#btn3").html();
@@ -52,7 +52,7 @@
             });
         });
         
-        // fadeTo(속도, 불투명도)
+        // fadeTo(속도, 불투명도, [easing], [callback])
         // 마우스 올렸을 때 투명해지도록
         $("img").hover(function() {
             $(this).fadeTo("slow", 0.2);

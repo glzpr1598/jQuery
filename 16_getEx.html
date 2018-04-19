@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Range bar</legend>
+            <input id="input1" type="range" min="0" max="100" value="50" step="1">
+            값 : <span id="val">50</span>
+            <br/>
+            <button id="inc">+</button>
+            <button id="dec">-</button>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Radio button</legend>
+            <input type="radio" name="front" value="HTML">HTML<br/>
+            <input type="radio" name="front" value="CSS">CSS<br/>
+            <input type="radio" name="front" value="JavaScript">JavaScript<br/>
+            <input type="radio" name="front" value="jQuery">jQuery<br/>
+            <span>선택값 : <span id="selected"></span></span>
+        </fieldset>
+    </body>
+    <script>
+        // range 버튼을 움직이면 값이 출력되도록
+        $("#input1").on("change", function() { // 마우스 뗄 때, 키보드 눌렀을 때
+            $("#val").html($("#input1").val());
+        });
+        $("#input1").on("mousemove", function() { // 마우스를 움직일 때
+            $("#val").html($("#input1").val());
+        });
+        
+        // + 버튼을 누르면 값 증가
+        $("#inc").click(function() {
+            var cur = $("#input1").val();
+            cur++;
+            $("#input1").val(cur);
+            $("#val").html($("#input1").val());
+        });
+        
+        // - 버튼을 누르면 값 감소
+        $("#dec").click(function() {
+            var cur = $("#input1").val();
+            cur--;
+            $("#input1").val(cur);
+            $("#val").html($("#input1").val());
+        });
+        
+        
+        // radio 버튼 클릭한 값 출력
+        var $radio = $(":radio[name='front']"); // radio 태그 가져오기
+        //var radio2 = $("input[name='front']") // 방법 2
+        $radio.click(function() {
+            $("#selected").html($(this).val());
+        });
+    </script>
+</html>

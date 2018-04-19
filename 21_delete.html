@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/jQuery.gif">
+        <title>jQuery</title>
+        <style>
+            div.parent {
+                background-color: yellow;
+                width: 400px;
+                height: 200px;
+                text-align: center;
+            }
+            div.child1 {
+                background-color: orange;
+                width: 300px;
+                height: 50px;
+                margin: 20px auto;
+                /*margin을 auto로하면 가운데 정렬*/
+            }
+            div.child2 {
+                background-color: dodgerblue;
+                width: 300px;
+                height: 50px;
+                margin: 20px auto;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div class="parent">
+            <p>부모 요소</p>
+            <div class="child1">자식 요소1</div>
+            <div class="child2">자식 요소2</div>
+        </div>
+        <button id="btn1">Remove</button>
+        <button id="btn2">Empty</button>
+    </body>
+    <script>
+        /*
+        .remove() : 해당 요소를 삭제(자식요소 포함)
+        .empty() : 자식요소를 삭제
+        */
+        $("#btn1").click(function() {
+            $(".parent").remove();
+        });
+        
+        $("#btn2").click(function() {
+            $(".parent").empty();
+        });
+    </script>
+</html>

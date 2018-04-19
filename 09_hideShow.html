@@ -31,7 +31,16 @@
         <p>List 5</p>
     </body>
     <script>
-        /* 메뉴에 마우스를 올리면 리스트가 보이도록 */
+        /*
+        .hide([speed], [easing], [callback]) -> 요소가 사라짐
+        .show([speed], [easing], [callback]) -> 요소가 나타남
+        .toggle([speed], [easing], [callback]) -> hide, show 토글
+        
+        easing : 가속도(swing, linear)
+        callback : 함수가 완료된 후 실행할 함
+        */
+        
+        //메뉴에 마우스를 올리면 리스트가 보이도록
         // 먼저 숨겨놓음
         $("ul").hide();
         
